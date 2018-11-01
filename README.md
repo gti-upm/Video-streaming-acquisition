@@ -1,4 +1,10 @@
-# Video-streaming-adquisition
+# Video-streaming-acquisition
+
+## Video acquistion Python scripts
+
+* [video_from_camera.py](video_from_camera.py): script to acquire video from a usb camera.
+* [video_from_file.py](video_from_file.py): script to acquire video from a file.
+* [video_from_ip_cam.py](video_from_ip_cam.py): script to acquire video from am IP camera.
 
 ## FAQ
 * How to find out the url from ip camera stream published in Internet. 
