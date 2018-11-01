@@ -3,6 +3,7 @@ import cv2  # opencv-python package must be installed.
 
 # Input: ip camera url.
 url_video = "http://46.24.35.53/mjpg/video.mjpg"  # Camera IP
+#url_video = "http://user:password@camedusa3.gti.ssr.upm.es/mjpg/video.mjpg" # GTI camera
 
 
 # Video source selection: ip camera.
