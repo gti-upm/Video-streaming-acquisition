@@ -2,7 +2,6 @@
 # streamlink package must be installed.
 
 # Libraries
-import matplotlib.pyplot as plt
 import cv2  # opencv-python package must be installed.
 import subprocess
 import time
@@ -21,7 +20,7 @@ subprocess.call(['del', '.\\tmp\\tmp.mp4'], shell=True) # shell=True needed in W
 # Captured video stream.
 subprocess.call(["streamlink", video_url, "best", "-o", "./tmp/tmp.mp4"])
 #subprocess.Popen(["streamlink", video_url, "best", "-o", "./tmp/tmp.mp4"], stdout=subprocess.PIPE, stderr=subprocess.STDOUT)
-time.sleep(1)
+time.sleep(5)
 
 # Open captured video
 cap = cv2.VideoCapture("./tmp/tmp.mp4")

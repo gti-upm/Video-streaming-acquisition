@@ -1,11 +1,14 @@
-# Recordad que necesitamos tener instalado ffmpeg y los paquetes "streamlink", "numpy", "sh" y, en el caso de esta demo en particular, "matplotlib".
-# import streamlink # Hay que instalar el paquete para que exista este comando externo
-import matplotlib.pyplot as plt
-import sh
-import time
+# Dependencies
+# streamlink package must be installed.
+# ffmpeg must be installed.
+
+# Libraries
+import cv2  # opencv-python package must be installed.
+import sh # sh package must be installed.
 import numpy
 import json
 import threading
+import time
 
 class DoubleBuffer:
     def __init__(self, width, height):
@@ -35,8 +38,6 @@ class DoubleBuffer:
             print("")
         return numpy.copy(self.buffers[readfrom])
 
-
-
 def get_resolution(url):
     streams = json.loads(str(sh.ffprobe(
         sh.streamlink([url, "best", "-O"], _piped=True, _ok_code=(0, 1)),
@@ -58,14 +59,19 @@ def producer(url, db):
 def consumer(db):
     for i in range(50):
         im = db.read()
-        plt.imshow(im)
-        plt.show()
+        cv2.imshow('frame', im)
         time.sleep(3)
 
+# Input: video url
+url = "https://youtu.be/WPrH_ivypZ8" # Live Youtube
 
-url = "https://www.youtube.com/watch?v=wwMDvPCGeE0"
+# Create buffer object.
 db = DoubleBuffer(*(get_resolution(url)))
-
-producer_t = threading.Thread(target=producer, args=(url,db))
+# Create and start video capturing thread
+producer_t = threading.Thread(target=producer, args=(url, db))
 producer_t.start()
+# Show captured video
 consumer(db)
+
+# Release memory
+cv2.destroyAllWindows()
