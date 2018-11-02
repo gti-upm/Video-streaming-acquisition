@@ -33,3 +33,4 @@
 * [Streamlink](https://github.com/streamlink/streamlink). CLI utility that pipes flash videos from online streaming services to a variety of video players such as VLC. Examples of services: Dailymotion, Livestream, Twitch, UStream, YouTube.
 * [sh](https://github.com/amoffat/sh): sh is a full-fledged subprocess replacement for Python for Linux that allows you to call any program as if it were a function.
 * [Python Subprocess and Popen with Examples](https://www.poftut.com/python-subprocess-popen-examples/)
+* [OpenCV and IP camera streaming with Python](https://benhowell.github.io/guide/2015/03/09/opencv-and-web-cam-streaming)
